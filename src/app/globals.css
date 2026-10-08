@@ -1,0 +1,26 @@
+@import "tailwindcss";
+
+/*
+ * O sistema usa uma paleta clara única, independente do tema do aparelho.
+ *
+ * O template do Next trazia um bloco `prefers-color-scheme: dark` que
+ * invertia fundo e texto no `body`. Por estar fora das camadas do Tailwind,
+ * ele vencia as classes utilitárias: em celulares no modo escuro o fundo
+ * ficava preto e os títulos, em azul-escuro, ilegíveis.
+ *
+ * As cores agora vêm apenas das classes do layout (bg-slate-50 /
+ * text-slate-900), como no restante das telas.
+ */
+:root {
+  /* Mantém campos e seletores de data nativos no tema claro */
+  color-scheme: light;
+}
+
+@theme inline {
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+body {
+  font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
+}
